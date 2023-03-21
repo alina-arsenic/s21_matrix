@@ -379,4 +379,4 @@ Implement basic operations with matrices (partially described [above](#matrix-op
 - Verifiable accuracy of the fractional part is up to 6 decimal places
 
 
-💡 [Tap here](https://forms.yandex.ru/u/6357d9e22530c230b571513b/)** to leave your feedback on the project**. Pedago Team really tries to make your educational experience better.
+💡 [Tap here](https://forms.yandex.ru/cloud/6418147073cee70b89478999/) **to leave your feedback on the project**. Pedago Team really tries to make your educational experience better.
