@@ -34,6 +34,7 @@ style:
 	cppcheck *.c *.h
 	cp ../materials/linters/.clang-format ./
 	clang-format -n *.c *.h tests/*.c
+#	clang-format -i *.c *.h tests/*.c
 	rm -f ./.clang-format
 
 miniverter:

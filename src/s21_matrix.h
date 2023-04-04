@@ -2,17 +2,18 @@
 #define SRC_S21_MATRIX_H_
 
 typedef struct matrix_struct {
-    double** matrix;
-    int rows;
-    int columns;
+  double **matrix;
+  int rows;
+  int columns;
 } matrix_t;
 
+#include <float.h>
+#include <limits.h>
+#include <math.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <stdio.h>
-#include <limits.h>
-#include <float.h>
-#include <math.h>
+
 #include "s21_utils.h"
 
 #define OK 0
