@@ -26,14 +26,6 @@ START_TEST(test_s21_mult_matrix_1) {
     code = s21_mult_matrix(&A, &B, &C);
     ck_assert_int_eq(0, code);
 
-    printf("\n");
-    s21_print_matrix(A, 0);
-    printf("\n\n");
-    s21_print_matrix(B, 0);
-    printf("\n\n");
-    s21_print_matrix(C, 0);
-    printf("\n");
-
     ck_assert_double_eq_tol(C.matrix[0][0], 9, 1e-7);
     ck_assert_double_eq_tol(C.matrix[0][1], 11, 1e-7);
     ck_assert_double_eq_tol(C.matrix[0][2], 17, 1e-7);
@@ -150,10 +142,16 @@ END_TEST
 START_TEST(test_s21_mult_matrix_5) {
   matrix_t A, B, C;
   int code = 0;
-  code += s21_create_matrix(66666666, 1, &A);
-  code += s21_create_matrix(1, INT_MAX, &B);
-  code += s21_mult_matrix(&A, &B, &C);
+  code += s21_create_matrix(3, 2, &A);
+  code += s21_create_matrix(2, 3, &B);
+  if (!code) {
+    A.rows = 0;
+    B.columns = 0;
+    code = s21_mult_matrix(&A, &B, &C);
+  }
   ck_assert_int_ne(0, code);
+  A.rows = 2;
+  B.columns = 2;
   s21_remove_matrix(&A);
   s21_remove_matrix(&B);
 }

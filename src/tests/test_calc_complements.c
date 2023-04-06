@@ -15,11 +15,6 @@ START_TEST(test_s21_calc_complements_1) {
     A.matrix[2][1] = 2;
     A.matrix[2][2] = 1;
     code += s21_calc_complements(&A, &B);
-    printf("\n");
-    s21_print_matrix(A, 0);
-    printf("\n\n");
-    s21_print_matrix(B, 0);
-    printf("\n");
     ck_assert_double_eq_tol(B.matrix[0][0], 0, 1e-7);
     ck_assert_double_eq_tol(B.matrix[0][1], 10, 1e-7);
     ck_assert_double_eq_tol(B.matrix[0][2], -20, 1e-7);
@@ -41,8 +36,8 @@ START_TEST(test_s21_calc_complements_2) {
   int code = 0;
   code += s21_create_matrix(3, 3, &A);
   if (!code) {
-    A.rows = INT_MAX;
-    A.columns = INT_MAX;
+    A.rows = 0;
+    A.columns = 0;
     code += s21_calc_complements(&A, &B);
   }
   ck_assert_int_ne(0, code);

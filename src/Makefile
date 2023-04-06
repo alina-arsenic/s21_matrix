@@ -48,7 +48,7 @@ debug:
 
 clean:
 	rm -f *.o *.a *.gcda *.gcno *.info
-	rm -fr gcov_report ./tests/all_tests
+	rm -fr gcov_report ./tests/all_tests*
 	rm -f ./a.out
 	rm -rf ./tests/*.o ./tests/*.a ./tests/*.gcda ./tests/*.gcno ./tests/*.info
 	rm -rf VALGRIND.txt

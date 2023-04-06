@@ -1,26 +1,21 @@
 #include "s21_utils.h"
 
-int s21_is_ok(matrix_t *A) {
-  if (!A || !(A->matrix) || !(A->columns > 0) || !(A->rows > 0)) {
-    return 0;
-  }
-  return 1;
-}
-
-void s21_print_matrix(matrix_t source, int big) {
-  for (int i = 0; i < source.rows; i++) {
-    for (int j = 0; j < source.columns; j++) {
+/*
+void s21_print_matrix(matrix_t *A, int big) {
+  for (int i = 0; i < A->rows; i++) {
+    for (int j = 0; j < A->columns; j++) {
       if (big)
-        printf("%.7lf\n", source.matrix[i][j]);
+        printf("%.7lf\n", A->matrix[i][j]);
       else
-        printf("%13.7lf", source.matrix[i][j]);
+        printf("%13.7lf", A->matrix[i][j]);
     }
     printf("\n");
   }
 }
+*/
 
 int s21_fill_matrix_random(matrix_t *A, int big) {
-  if (s21_is_ok(A)) {
+  if (A) {
     for (int i = 0; i < A->rows; i++) {
       for (int j = 0; j < A->columns; j++) {
         if (A->matrix[i] + j) {
@@ -37,7 +32,7 @@ int s21_fill_matrix_random(matrix_t *A, int big) {
 
 int s21_get_minor(matrix_t *A, int row, int col, matrix_t *result) {
   int code = 0;
-  if ((s21_is_ok(A) && result)) {
+  if (A && result) {
     if (!s21_create_matrix(A->rows - 1, A->columns - 1, result)) {
       if (row >= 0 && col >= 0 && row < A->rows && col < A->columns) {
         int skip = 0;

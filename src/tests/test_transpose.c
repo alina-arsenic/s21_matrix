@@ -12,11 +12,6 @@ START_TEST(test_s21_transpose_1) {
     A.matrix[1][1] = 5;
     A.matrix[2][1] = 6;
     code += s21_transpose(&A, &B);
-    printf("\n");
-    s21_print_matrix(A, 0);
-    printf("\n\n");
-    s21_print_matrix(B, 0);
-    printf("\n");
     for (int i = 0; i < A.columns; i++) {
       for (int j = 0; j < A.rows; j++) {
         ck_assert_double_eq(B.matrix[i][j], A.matrix[j][i]);
@@ -78,8 +73,8 @@ START_TEST(test_s21_transpose_5) {
   int code = 0;
   code += s21_create_matrix(3, 2, &A);
   if (!code) {
-    A.columns = INT_MAX;
-    A.rows = INT_MAX;
+    A.columns = 0;
+    A.rows = 0;
     code += s21_transpose(&A, &B);
   }
   ck_assert_int_ne(0, code);

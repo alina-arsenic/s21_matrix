@@ -16,10 +16,6 @@ START_TEST(test_s21_determinant_1) {
     A.matrix[2][1] = 8;
     A.matrix[2][2] = 9;
     code += s21_determinant(&A, &det);
-    printf("\n");
-    s21_print_matrix(A, 0);
-    printf("\n");
-    printf("det = %lf\n\n", det);
     ck_assert_double_eq_tol(det, answer, 1e-7);
   }
   ck_assert_int_eq(0, code);
@@ -37,10 +33,6 @@ START_TEST(test_s21_determinant_2) {
     A.matrix[1][1] = 0;
     A.matrix[3][3] = 0;
     code += s21_determinant(&A, &det);
-    printf("\n");
-    s21_print_matrix(A, 0);
-    printf("\n");
-    printf("det = %lf\n\n", det);
   }
   ck_assert_int_eq(0, code);
   s21_remove_matrix(&A);
@@ -55,10 +47,6 @@ START_TEST(test_s21_determinant_3) {
     double det;
     s21_fill_matrix_random(&A, 2);
     code += s21_determinant(&A, &det);
-    printf("\n");
-    s21_print_matrix(A, 1);
-    printf("\n");
-    printf("det = %lf\n\n", det);
   }
   ck_assert_int_eq(0, code);
   s21_remove_matrix(&A);
@@ -167,10 +155,6 @@ START_TEST(test_s21_determinant_8) {
   if (!code) {
     double det;
     code += s21_determinant(&A, &det);
-    printf("\n");
-    s21_print_matrix(A, 0);
-    printf("\n");
-    printf("det = %lf\n\n", det);
     ck_assert_double_eq_tol(det, 0, 1e-7);
   }
   ck_assert_int_eq(0, code);
@@ -191,10 +175,6 @@ START_TEST(test_s21_determinant_9) {
       }
     }
     code += s21_determinant(&A, &det);
-    printf("\n");
-    s21_print_matrix(A, 0);
-    printf("\n");
-    printf("det = %lf\n\n", det);
     ck_assert_double_eq_tol(det, answer, 1e-7);
   }
   ck_assert_int_eq(0, code);

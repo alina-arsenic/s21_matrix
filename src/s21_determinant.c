@@ -5,7 +5,7 @@ int gauss_elimination(matrix_t A, int *swap_count);
 int gauss_det(matrix_t A, double *det);
 
 int s21_determinant(matrix_t *A, double *result) {
-  if (!((s21_is_ok(A) && result))) {
+  if (!A || !result) {
     return WRONG_MATRIX;
   }
   if (A->columns != A->rows) {

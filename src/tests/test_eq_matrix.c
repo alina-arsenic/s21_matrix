@@ -12,11 +12,6 @@ START_TEST(test_s21_eq_matrix_1) {
         B.matrix[i][j] = A.matrix[i][j];
       }
     }
-    printf("\n");
-    s21_print_matrix(A, 0);
-    printf("\n\n");
-    s21_print_matrix(B, 0);
-    printf("\n");
     int is_eq = s21_eq_matrix(&A, &B);
     ck_assert_int_eq(1, is_eq);
   }
@@ -168,23 +163,13 @@ START_TEST(test_s21_eq_matrix_9) {
 END_TEST
 
 START_TEST(test_s21_eq_matrix_10) {
-  matrix_t A, B;
-  A.rows = 0;
-  int is_eq = s21_eq_matrix(&A, &B);
+  int is_eq = s21_eq_matrix(NULL, NULL);
   ck_assert_int_eq(0, is_eq);
 }
 END_TEST
 
 START_TEST(test_s21_eq_matrix_11) {
-  matrix_t A, B;
-  int is_eq = s21_eq_matrix(&A, &B);
-  ck_assert_int_eq(0, is_eq);
-}
-END_TEST
-
-START_TEST(test_s21_eq_matrix_12) {
-  matrix_t A;
-  int code = s21_create_matrix(INT_MAX, INT_MAX, &A);
+  int code = s21_create_matrix(1, 1, NULL);
   ck_assert_int_eq(1, code);
 }
 END_TEST
@@ -203,7 +188,6 @@ Suite *s21_eq_matrix_suite(void) {
   tcase_add_test(tc_s21_eq_matrix, test_s21_eq_matrix_9);
   tcase_add_test(tc_s21_eq_matrix, test_s21_eq_matrix_10);
   tcase_add_test(tc_s21_eq_matrix, test_s21_eq_matrix_11);
-  tcase_add_test(tc_s21_eq_matrix, test_s21_eq_matrix_12);
   suite_add_tcase(eq_matrix, tc_s21_eq_matrix);
   return eq_matrix;
 }

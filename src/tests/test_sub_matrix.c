@@ -10,13 +10,6 @@ START_TEST(test_s21_sub_matrix_1) {
     s21_fill_matrix_random(&B, 0);
     code = s21_sub_matrix(&A, &B, &C);
     ck_assert_int_eq(0, code);
-    printf("\n");
-    s21_print_matrix(A, 0);
-    printf("\n\n");
-    s21_print_matrix(B, 0);
-    printf("\n\n");
-    s21_print_matrix(C, 0);
-    printf("\n");
     for (int i = 0; i < A.rows; i++) {
       for (int j = 0; j < A.columns; j++) {
         errors +=
@@ -140,13 +133,13 @@ START_TEST(test_s21_sub_matrix_7) {
     s21_fill_matrix_random(&A, 0);
     s21_fill_matrix_random(&B, 0);
     int acol = A.columns;
-    A.columns = INT_MAX;
+    A.columns = 0;
     int arow = A.rows;
-    A.rows = INT_MAX;
+    A.rows = 0;
     int bcol = B.columns;
-    B.columns = INT_MAX;
+    B.columns = 0;
     int brow = B.rows;
-    B.rows = INT_MAX;
+    B.rows = 0;
     code = s21_sub_matrix(&A, &B, &C);
     ck_assert_int_ne(0, code);
     A.columns = acol;

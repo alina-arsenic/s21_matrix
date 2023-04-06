@@ -8,11 +8,6 @@ START_TEST(test_s21_mult_number_1) {
     s21_fill_matrix_random(&A, 0);
     code = s21_mult_number(&A, 2, &C);
     ck_assert_int_eq(0, code);
-    printf("\n");
-    s21_print_matrix(A, 0);
-    printf("\n\n");
-    s21_print_matrix(C, 0);
-    printf("\n");
     for (int i = 0; i < A.rows; i++) {
       for (int j = 0; j < A.columns; j++) {
         errors += !(fabs(A.matrix[i][j] * 2 - C.matrix[i][j]) < 1e-6);
@@ -62,8 +57,8 @@ START_TEST(test_s21_mult_number_4) {
   int code = 0;
   code += s21_create_matrix(5, 5, &A);
   if (!code) {
-    A.columns = INT_MAX;
-    A.rows = INT_MAX;
+    A.columns = 0;
+    A.rows = 0;
     code = s21_mult_number(&A, number, &C);
     ck_assert_int_ne(0, code);
   }

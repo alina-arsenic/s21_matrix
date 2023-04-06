@@ -1,7 +1,7 @@
 #include "s21_matrix.h"
 
 int s21_calc_complements(matrix_t *A, matrix_t *result) {
-  if (!((s21_is_ok(A) && result))) {
+  if (!A || !result) {
     return WRONG_MATRIX;
   }
   if (A->columns != A->rows) {

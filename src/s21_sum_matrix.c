@@ -1,7 +1,7 @@
 #include "s21_matrix.h"
 
 int s21_sum_matrix(matrix_t *A, matrix_t *B, matrix_t *result) {
-  if (!(s21_is_ok(A) && s21_is_ok(B) && result)) {
+  if (!A || !B || !result) {
     return WRONG_MATRIX;
   }
   if (A->columns != B->columns || A->rows != B->rows) {
