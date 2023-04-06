@@ -1,8 +1,6 @@
 #ifndef SRC_S21_UTILS_
 #define SRC_S21_UTILS_
 
-#define S21_INF 1.0 / 0.0
-
 #include "s21_matrix.h"
 
 // void s21_print_matrix(matrix_t *source, int big);
